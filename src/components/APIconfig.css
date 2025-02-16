@@ -1,0 +1,53 @@
+.config-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 20px;
+  background: #1e1e1e;
+  border-radius: 8px;
+  color: #ffffff;
+}
+
+.input-group {
+  margin-bottom: 1.5rem;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #3d3d3d;
+  border-radius: 4px;
+  background: #2d2d2d;
+  color: #ffffff;
+}
+
+.generate-btn {
+  background: #007acc;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.generate-btn:hover {
+  background: #0062a3;
+}
+
+.instructions {
+  margin-top: 2rem;
+  padding: 15px;
+  background: #2d2d2d;
+  border-radius: 4px;
+}
+
+.instructions ol {
+  padding-left: 20px;
+  line-height: 1.6;
+}

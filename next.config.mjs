@@ -1,6 +1,6 @@
-let userConfig = undefined
+let userConfig = undefined;
 try {
-  userConfig = await import('./v0-user-next.config')
+  userConfig = await import('./v0-user-next.config.mjs').then(mod => mod.default);
 } catch (e) {
   // ignore error
 }
@@ -15,34 +15,31 @@ const nextConfig = {
   },
   images: {
     unoptimized: true,
+    domains: [
+      'images.unsplash.com',
+      'avatars.githubusercontent.com',
+    ],
   },
   experimental: {
     webpackBuildWorker: true,
     parallelServerBuildTraces: true,
     parallelServerCompiles: true,
   },
-}
+  onError: (error) => {
+    console.error('Next.js build error:', error);
+  },
+  headers: async () => [
+    {
+      source: '/:path*',
+      headers: [
+        { key: 'X-Frame-Options', value: 'DENY' },
+        { key: 'X-Content-Type-Options', value: 'nosniff' },
+        { key: 'Referrer-Policy', value: 'origin-when-cross-origin' },
+      ],
+    },
+  ],
+  // Merge with user config if it exists
+  ...(userConfig || {}),
+};
 
-mergeConfig(nextConfig, userConfig)
-
-function mergeConfig(nextConfig, userConfig) {
-  if (!userConfig) {
-    return
-  }
-
-  for (const key in userConfig) {
-    if (
-      typeof nextConfig[key] === 'object' &&
-      !Array.isArray(nextConfig[key])
-    ) {
-      nextConfig[key] = {
-        ...nextConfig[key],
-        ...userConfig[key],
-      }
-    } else {
-      nextConfig[key] = userConfig[key]
-    }
-  }
-}
-
-export default nextConfig
+export default nextConfig;

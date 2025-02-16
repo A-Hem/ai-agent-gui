@@ -6,7 +6,7 @@ const config: Config = {
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
-    "*.{js,ts,jsx,tsx,mdx}"
+    "./**/*.{js,ts,jsx,tsx,mdx}"
   ],
   theme: {
   	extend: {
@@ -88,9 +88,42 @@ const config: Config = {
   		animation: {
   			'accordion-down': 'accordion-down 0.2s ease-out',
   			'accordion-up': 'accordion-up 0.2s ease-out'
-  		}
+  		},
+  		screens: {
+  			'xs': '475px',
+  			'3xl': '1920px',
+  		},
+  		spacing: {
+  			'18': '4.5rem',
+  			'72': '18rem',
+  			'84': '21rem',
+  			'96': '24rem',
+  		},
+  		zIndex: {
+  			'60': '60',
+  			'70': '70',
+  			'80': '80',
+  			'90': '90',
+  			'100': '100',
+  		},
+  		typography: {
+  			DEFAULT: {
+  				css: {
+  					maxWidth: '65ch',
+  					color: 'inherit',
+  				},
+  			},
+  		},
   	}
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/forms'),
+  ],
+  future: {
+    hoverOnlyWhenSupported: true,
+    respectDefaultRingColorOpacity: true,
+  },
 };
 export default config;

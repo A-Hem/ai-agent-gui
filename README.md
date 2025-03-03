@@ -1,6 +1,6 @@
 # AI Agent GUI
 
-AI Agent GUI will be a powerful web based drag and drop graphical user interface for building and executing AI agent workflows. This project allows users to create complex AI-driven tasks through a drag-and-drop interface, making it easy to design, visualize, and execute sophisticated AI workflows.
+AI Agent GUI project, web based drag and drop graphical user interface for building and executing AI agent workflows. This project allows users to create complex AI-driven tasks through a drag-and-drop interface, making it easy to design, visualize, and execute sophisticated AI workflows.
 
 ## Features
 
